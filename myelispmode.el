@@ -33,18 +33,17 @@
 
 (defun melm-defun(name signature)
 	""
-	(interactive "sname:\nssignature:")
+	(interactive "sname: \nssignature: ")
 	(let
 	  (
 		  textStrings
-		  offset
 		)
 
 		
 		(setq textStrings ;предварительный список строк
 			(list
 				(concat 
-				"(defun " name "(" signature")")
+				"(defun " name "(" signature ")")
 				"  \"\""
 				"  (let"
 				"    ("
@@ -62,12 +61,39 @@
 
 
 
+(defun melm-let()
+	""
+	(interactive)
+	(let
+	  (
+		  textStrings
+		)
 
+		
+		(setq textStrings ;предварительный список строк
+			(list
+				"(let"
+				"  ("
+				"    "
+				"    "
+				"  )"
+				"  "
+				")"
+			)
+		)
+		(melm-common-procedure-and-print textStrings)
+	)
 )
 
 
 
 
+
+)
+
+
+
+     
 
 
 
