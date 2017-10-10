@@ -24,9 +24,9 @@
         )
         textStrings
         "\n"
-      )	
+      ) 
       (current-buffer)
-    )		
+    )   
   )
 )
 
@@ -42,17 +42,16 @@
     
     (setq textStrings ;предварительный список строк
       (list
-        (concat 
-        "(defun " name "(" signature ")")
-        "  \"\""
-        "  ;(interactive)"
-        "  "
-        "  (let"
-        "    ("
-        "      "
-        "    )"
-        "    "
-        "  )"
+        (concat "(defun " name "(" signature ")")
+        (concat (make-string tab-width ?\ ) "\"\"")
+        (concat (make-string tab-width ?\ ) ";(interactive)")
+        (make-string tab-width ?\ )
+        (concat (make-string tab-width ?\ ) "(let")
+        (concat (make-string (* tab-width 2) ?\ ) "(")
+        (make-string (* tab-width 3) ?\ )
+        (concat (make-string (* tab-width 2) ?\ ) ")")
+        (make-string (* tab-width 2) ?\ )
+        (concat (make-string tab-width ?\ ) ")")
         ")"
       )
     )
@@ -74,11 +73,10 @@
     (setq textStrings ;предварительный список строк
       (list
         "(let"
-        "  ("
-        "    "
-        "    "
-        "  )"
-        "  "
+        (concat (make-string tab-width ?\ ) "(")
+        (make-string (* tab-width 2) ?\ )
+        (concat (make-string tab-width ?\ ) ")")
+        (make-string tab-width ?\ )
         ")"
       )
     )
@@ -100,10 +98,10 @@
     (setq textStrings ;предварительный список строк
       (list
         "(if()"
-        "  (progn"
-        "    "
-        "  )"
-        "  "
+        (concat (make-string tab-width ?\ ) "(progn")
+        (make-string (* tab-width 2) ?\ )
+        (concat (make-string tab-width ?\ ) ")")
+        (make-string tab-width ?\ )
         ")"
       )
     )
@@ -126,7 +124,7 @@
     (setq textStrings ;предварительный список строк
       (list
         "(when()"
-        "  "
+        (make-string tab-width ?\ )
         ")"
       )
     )
@@ -148,7 +146,7 @@
     (setq textStrings ;предварительный список строк
       (list
         "(while()"
-        "  "
+        (make-string tab-width ?\ )
         ")"
       )
     )
@@ -157,7 +155,7 @@
 )
 
 
-
+  
 
 (defun melm-unless()
   ""
@@ -171,7 +169,7 @@
     (setq textStrings ;предварительный список строк
       (list
         "(unless()"
-        "  "
+        (make-string tab-width ?\ )
         ")"
       )
     )
@@ -194,18 +192,49 @@
     (setq textStrings ;предварительный список строк
       (list
         "(cond"
-        "  (()"
-        "    "
-        "  )"
-        "  (t"
-        "    "
-        "  )"
+        (concat (make-string tab-width ?\ ) "(()")
+        (make-string (* tab-width 2) ?\ )
+        (concat (make-string tab-width ?\ ) ")")
+        (concat (make-string tab-width ?\ ) "(t")
+        (make-string (* tab-width 2) ?\ )
+        (concat (make-string tab-width ?\ ) ")")
         ")"
       )
     )
     (melm-common-procedure-and-print textStrings)
   )
 )
+
+
+
+
+
+
+
+(defun melm-case()
+  ""
+  (interactive)
+  (let
+    (
+      textStrings
+    )
+    
+    
+    (setq textStrings ;предварительный список строк
+      (list
+        "(()"
+        (make-string tab-width ?\ )
+        ")"
+      )
+    )
+    (melm-common-procedure-and-print textStrings)
+  )
+)
+
+
+
+
+
 
 
 
@@ -244,7 +273,7 @@
       (list
         (concat
         "(catch '" exception)
-        "  "
+        (make-string tab-width ?\ )
         ")"
       )
     )
@@ -253,7 +282,7 @@
 )
 
 
-
+   
 
 
 (defun melm-and()
@@ -329,17 +358,16 @@
     
     (setq textStrings ;предварительный список строк
       (list
-        (concat 
-        "(lambda " "(" signature ")")
-        "  \"\""
-        "  ;(interactive)"
-        "  "
-        "  (let"
-        "    ("
-        "      "
-        "    )"
-        "    "
-        "  )"
+        (concat "(lambda " "(" signature ")")
+        (concat (make-string tab-width ?\ ) "\"\"")
+        (concat (make-string tab-width ?\ ) ";(interactive)")
+        (make-string tab-width ?\ )
+        (concat (make-string tab-width ?\ ) "(let")
+        (concat (make-string (* tab-width 2) ?\ ) "(")
+        (make-string (* tab-width 3) ?\ )
+        (concat (make-string (* tab-width 2) ?\ ) ")")
+        (make-string (* tab-width 2) ?\ )
+        (concat (make-string tab-width ?\ ) ")")
         ")"
       )
     )
@@ -350,59 +378,10 @@
 
 
 
-(defun textToStrings(text)
-  ""
-  ;(interactive)
-  
-  (let
-    (
-      strings
-      (startIndex 0)
-      (endIndex 0)
-    )
-    (mapc
-      (lambda (char)
-        ""
-        ;(interactive)
-        
-        (let
-          (
-            
-          )
-          (if(equal char ?\n)
-            (progn
-              
-            )
-            
-          )
-        )
-      )
-      text
-    )
-  )
-)
+
+     
 
 
-
-(defun melm-com()
-  ""
-  (interactive)
-  
-  (let
-    (
-      regionStart
-      regionEnd
-      regionText
-      regionTextStrings
-    )
-    (setq regionStart (min (region-beginning) (region-end)))
-    (setq regionStart (max (region-beginning) (region-end)))
-    (setq regionText (buffer-substring-no-properties regionStart regionEnd))
-		
-  )
-)
-
-   
 
 )
 
