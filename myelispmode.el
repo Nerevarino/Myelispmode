@@ -56,8 +56,14 @@
       )
     )
     (melm-common-procedure-and-print textStrings)
+    (previous-line 2)
+    (right-char (- (* tab-width 2) 1))
   )
 )
+
+
+
+
 
 
 
@@ -81,8 +87,14 @@
       )
     )
     (melm-common-procedure-and-print textStrings)
+    (previous-line 3)
+    (right-char (- (* tab-width 2) 1))
   )
 )
+
+
+   
+
 
 
 
@@ -106,9 +118,15 @@
       )
     )
     (melm-common-procedure-and-print textStrings)
+    (previous-line 3)
+    (right-char (- (* tab-width 2) 1))
   )
 )
 
+
+  
+
+      
 
 
 
@@ -129,8 +147,13 @@
       )
     )
     (melm-common-procedure-and-print textStrings)
+    (previous-line)
+    (right-char (- tab-width 1))
   )
 )
+
+
+    
 
 
 
@@ -151,8 +174,14 @@
       )
     )
     (melm-common-procedure-and-print textStrings)
+    (previous-line)
+    (right-char (- tab-width 1))
   )
 )
+
+
+     
+
 
 
   
@@ -174,10 +203,12 @@
       )
     )
     (melm-common-procedure-and-print textStrings)
+    (previous-line)
+    (right-char (- tab-width 1))
   )
 )
 
-
+     
 
 
 (defun melm-cond()
@@ -202,8 +233,12 @@
       )
     )
     (melm-common-procedure-and-print textStrings)
+    (previous-line 5)
+    (right-char (- (* tab-width 2)  1))
   )
 )
+
+
 
 
 
@@ -228,12 +263,14 @@
       )
     )
     (melm-common-procedure-and-print textStrings)
+    (previous-line)
+    (right-char (- tab-width 1))
   )
 )
 
 
 
-
+    
 
 
 
@@ -300,8 +337,13 @@
       )
     )
     (melm-common-procedure-and-print textStrings)
+    (left-char 5)
   )
 )
+
+
+
+
 
 
 
@@ -320,8 +362,11 @@
       )
     )
     (melm-common-procedure-and-print textStrings)
+    (left-char 5)
   )
 )
+
+
 
 
 
@@ -341,8 +386,11 @@
       )
     )
     (melm-common-procedure-and-print textStrings)
+    (left-char 2)
   )
 )
+
+
 
 
 
@@ -372,16 +420,45 @@
       )
     )
     (melm-common-procedure-and-print textStrings)
+    (previous-line 4)
+    (right-char (- (* tab-width 3) 1))
   )
 )
 
 
 
+     
+ 
 
+
+
+
+
+(defun melm-vcom(com)
+  ""
+  (interactive "scom: ")
+  (let
+    (
+      textStrings
+    )
+    
+    
+    (setq textStrings ;предварительный список строк
+      (list
+        (concat "(" com)
+        (make-string tab-width ?\ )
+        ")"
+      )
+    )
+    (melm-common-procedure-and-print textStrings)
+    (previous-line)
+    (right-char (- tab-width 1))
+  )
+)
+
+    
 
      
-
-
 
 )
 
